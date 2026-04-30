@@ -5,5 +5,7 @@ interface AppButtonProps extends ButtonProps {
 }
 
 export const AppButton = ({ label, variant = 'contained', ...props }: AppButtonProps) => (
-  <Button variant={variant} {...props}>{label}</Button>
+  <Button variant={variant} {...props}>
+    {label}
+  </Button>
 );

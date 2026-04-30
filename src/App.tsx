@@ -1,9 +1,9 @@
 import './App.css';
-import { useColorMode } from './theme/ThemeProvider';
+import { useColorMode } from './theme/useColorMode';
 import { RadioGroup, FormControlLabel, Radio, FormLabel, Box } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 
-import { AuthProvider } from './auth/AuthContext';
+import { AuthProvider } from './auth/AuthProvider';
 import { AppRoutes } from './routes/AppRoutes';
 
 function App() {
