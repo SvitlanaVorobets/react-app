@@ -1,8 +1,8 @@
-import { Snackbar, Alert, type SnackbarProps } from '@mui/material';
+import { Snackbar, Alert, type SnackbarProps, type AlertColor } from '@mui/material';
 
 interface AppSnackbarProps extends SnackbarProps {
   message: string;
-  severity?: 'success' | 'error' | 'warning' | 'info';
+  severity?: AlertColor;
 }
 
 export const AppSnackbar = ({

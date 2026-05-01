@@ -1,6 +1,7 @@
 import { Typography } from '@mui/material';
-import { useAuth } from '../../auth/useAuth';
 import { useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../../auth/useAuth';
 import { AppButton } from '../ui/AppButton';
 
 export const SignIn = () => {

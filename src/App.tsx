@@ -1,10 +1,11 @@
 import './App.css';
-import { useColorMode } from './theme/useColorMode';
+
 import { RadioGroup, FormControlLabel, Radio, FormLabel, Box } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AuthProvider } from './auth/AuthProvider';
 import { AppRoutes } from './routes/AppRoutes';
+import { useColorMode } from './theme/useColorMode';
 
 function App() {
   const { mode, setMode } = useColorMode();

@@ -1,4 +1,5 @@
 import { createContext } from 'react';
+
 import { Theme } from './theme';
 
 export const ColorModeContext = createContext({

@@ -1,9 +1,14 @@
 import { createTheme, ThemeProvider as MuiThemeProvider, CssBaseline } from '@mui/material';
 import { useState, useMemo } from 'react';
+
 import { Theme } from './theme';
 import { ColorModeContext } from './ColorModeContext';
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+interface ThemeProviderProps {
+  children: React.ReactNode;
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [mode, setMode] = useState<Theme>(Theme.LIGHT);
 
   const colorMode = useMemo(
