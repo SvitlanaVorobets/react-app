@@ -1,24 +1,39 @@
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { useUserStore } from '../store/userStore';
 import { api } from '../lib/api';
+import { storageService } from '../services/storageService';
+import { ROUTES } from '../routes/routes';
+import type { LoginCredentials } from '../types/auth';
 
 export const useAuth = () => {
   const { user, isAuthenticated, setUser, clearUser } = useUserStore();
   const navigate = useNavigate();
 
-  const login = async (credentials: { username: string; password: string }) => {
-    const { data } = await api.post('/auth/login', credentials);
-    setUser(data);
-    localStorage.setItem('token', data.token);
-    navigate('/products');
-  };
+  const loginMutation = useMutation({
+    mutationFn: async (credentials: LoginCredentials) => {
+      const { data } = await api.post('/auth/login', credentials);
+      return data;
+    },
+    onSuccess: (data) => {
+      setUser(data);
+      storageService.setToken(data.token);
+      navigate(ROUTES.PRODUCTS);
+    },
+  });
 
   const logout = () => {
     clearUser();
-    localStorage.removeItem('token');
-    navigate('/signin');
+    storageService.removeToken();
+    navigate(ROUTES.SIGN_IN);
   };
 
-  return { user, isAuthenticated, login, logout };
+  return {
+    user,
+    isAuthenticated,
+    login: loginMutation.mutateAsync,
+    isPending: loginMutation.isPending,
+    logout,
+  };
 };
