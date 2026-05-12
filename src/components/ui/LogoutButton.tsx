@@ -1,4 +1,3 @@
-// src/components/ui/LogoutButton.tsx
 import { useAuth } from '../../auth/useAuth';
 import { AppButton } from './AppButton';
 

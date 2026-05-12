@@ -1,7 +1,11 @@
 import axios from 'axios';
 
+import { ROUTES } from '../routes/routes';
+import { storageService } from '../services/storageService';
+import { HTTP_STATUS } from '../constants/httpStatus';
+
 export const api = axios.create({
-  baseURL: 'https://dummyjson.com',
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 10_000,
   headers: {
     'Content-Type': 'application/json',
@@ -15,7 +19,7 @@ api.interceptors.request.use(
       data: config.data,
     });
 
-    const token = localStorage.getItem('token');
+    const token = storageService.getToken();
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -42,8 +46,8 @@ api.interceptors.response.use(
 
     console.error(`[API] ${status} ${url}`, error.response?.data);
 
-    if (status === 401) {
-      window.location.href = '/login';
+    if (status === HTTP_STATUS.UNAUTHORIZED) {
+      window.location.href = ROUTES.SIGN_IN;
     }
 
     return Promise.reject(error);
