@@ -64,6 +64,6 @@ export const SignIn = () => {
         onClose={() => setError(null)}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       />
-    </>
+    </form>
   );
 };
