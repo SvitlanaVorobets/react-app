@@ -29,7 +29,7 @@ export const SignIn = () => {
   });
 
   return (
-    <>
+    <form onSubmit={formik.handleSubmit}>
       <Typography variant="h5">Sign In</Typography>
       <TextField
         label="Username"
@@ -53,7 +53,7 @@ export const SignIn = () => {
       <AppButton
         label="Sign In"
         variant="contained"
-        onClick={() => formik.handleSubmit()}
+        type="submit"
         disabled={formik.isSubmitting || isPending}
       />
 
