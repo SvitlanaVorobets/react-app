@@ -1,8 +1,7 @@
-import axios from 'axios';
+import axios, { HttpStatusCode } from 'axios';
 
 import { ROUTES } from '../routes/routes';
 import { storageService } from '../services/storageService';
-import { HTTP_STATUS } from '../constants/httpStatus';
 
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
@@ -46,7 +45,7 @@ api.interceptors.response.use(
 
     console.error(`[API] ${status} ${url}`, error.response?.data);
 
-    if (status === HTTP_STATUS.UNAUTHORIZED) {
+    if (status === HttpStatusCode.Unauthorized) {
       window.location.href = ROUTES.SIGN_IN;
     }
 
