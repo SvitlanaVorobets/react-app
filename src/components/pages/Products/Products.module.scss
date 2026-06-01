@@ -1,0 +1,102 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 80px;
+}
+
+.header {
+  padding: 56px 0 36px;
+  margin-bottom: 36px;
+}
+
+.pageTitle {
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.04em !important;
+  line-height: 1 !important;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.searchField {
+  min-width: 240px;
+  flex: 1;
+  max-width: 360px;
+
+  :global(.MuiOutlinedInput-root) {
+    border-radius: 980px;
+    font-size: 0.875rem;
+  }
+}
+
+.categorySelect {
+  min-width: 180px;
+
+  :global(.MuiOutlinedInput-root) {
+    border-radius: 980px;
+    font-size: 0.875rem;
+  }
+
+  :global(.MuiInputLabel-root) {
+    font-size: 0.875rem;
+  }
+}
+
+.activeFilters {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.filterChip {
+  text-transform: capitalize;
+  font-size: 0.72rem !important;
+  border-radius: 980px !important;
+  border: none !important;
+  font-weight: 500 !important;
+}
+
+.gridWrapper {
+  transition: opacity 0.25s ease;
+
+  &.dimmed {
+    opacity: 0.45;
+    pointer-events: none;
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px;
+  text-align: center;
+  gap: 10px;
+}
+
+.emptyIcon {
+  font-size: 3.5rem;
+  margin-bottom: 4px;
+  opacity: 0.4;
+}
+
+.paginationRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 56px;
+
+  :global(.MuiPaginationItem-root) {
+    border-radius: 980px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
