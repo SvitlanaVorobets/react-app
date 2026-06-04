@@ -2,9 +2,9 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 20px !important;
-  border: none !important;
-  box-shadow: none !important;
+  border-radius: 20px;
+  border: none;
+  box-shadow: none;
   overflow: hidden;
   transition:
     transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
@@ -13,7 +13,7 @@
 
   &:hover {
     transform: scale(1.02);
-    box-shadow: none !important;
+    box-shadow: none;
 
     .image {
       transform: scale(1.06);
@@ -23,12 +23,12 @@
 
 .actionArea {
   flex-grow: 1;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: stretch !important;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 
   &:hover {
-    background: transparent !important;
+    background: transparent;
   }
 }
 
@@ -51,30 +51,30 @@
 }
 
 .discountBadge {
-  position: absolute !important;
+  position: absolute;
   top: 12px;
   left: 12px;
-  background: #ff3b30 !important;
-  color: #fff !important;
-  font-size: 0.62rem !important;
-  font-weight: 700 !important;
-  height: 20px !important;
-  border-radius: 20px !important;
-  padding: 0 8px !important;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  height: 20px;
+  border-radius: 20px;
+  padding: 0 8px;
 }
 
 .content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 4px 20px 22px !important;
+  padding: 4px 20px 22px;
   gap: 3px;
 }
 
 .title {
-  font-size: 0.95rem !important;
-  font-weight: 600 !important;
-  line-height: 1.35 !important;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -97,7 +97,7 @@
 }
 
 .price {
-  font-size: 1rem !important;
-  font-weight: 600 !important;
+  font-size: 1rem;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }

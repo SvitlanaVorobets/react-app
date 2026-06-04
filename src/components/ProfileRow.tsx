@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import type { ProfileRowProps } from '../../types/user';
+import type { ProfileRowProps } from '../types/user';
 
 export const ProfileRow = ({ label, value }: ProfileRowProps) => (
   <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 2 }}>
