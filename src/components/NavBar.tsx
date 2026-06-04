@@ -4,7 +4,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 import { AppAvatar } from './AppAvatar';
 import { ProfileModal } from './ProfileModal';
-import { useAuth } from '../../auth/useAuth';
+import { useAuth } from '../auth/useAuth';
 
 export const NavBar = () => {
   const { user, logout } = useAuth();

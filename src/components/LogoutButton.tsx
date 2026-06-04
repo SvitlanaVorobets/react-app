@@ -1,4 +1,4 @@
-import { useAuth } from '../../auth/useAuth';
+import { useAuth } from '../auth/useAuth';
 import { AppButton } from './AppButton';
 
 export const LogoutButton = () => {

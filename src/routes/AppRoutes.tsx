@@ -2,10 +2,10 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { ROUTES } from './routes';
 import { ProtectedRoute } from './ProtectedRoute';
-import { SignIn } from '../components/pages/SignIn';
-import { SignUp } from '../components/pages/SignUp';
-import { Products } from '../components/pages/Products';
-import { ProductDetails } from '../components/pages/ProductDetails';
+import { SignIn } from '../pages/SignIn';
+import { SignUp } from '../pages/SignUp';
+import { Products } from '../pages/Products';
+import { ProductDetails } from '../pages/ProductDetails';
 
 export function AppRoutes() {
   return (

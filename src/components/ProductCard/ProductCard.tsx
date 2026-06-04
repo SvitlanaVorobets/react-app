@@ -2,14 +2,13 @@ import { Link } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, Chip, Typography, Rating, Box } from '@mui/material';
 
 import styles from './ProductCard.module.scss';
-import { formatCategory } from '../../../utils/formatCategory';
-import type { ProductCardProps } from '../../../types/products';
+import { formatCategory } from '../../utils/formatCategory';
+import type { ProductCardProps } from '../../types/products';
+import { getOriginalPrice } from '../../utils/getOriginalPrice';
+import { formatPrice } from '../../utils/formatPrice';
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const originalPrice =
-    product.discountPercentage > 0
-      ? (product.price / (1 - product.discountPercentage / 100)).toFixed(2)
-      : null;
+  const originalPrice = getOriginalPrice(product.price, product.discountPercentage);
 
   return (
     <Card className={styles.card} elevation={0} sx={{ bgcolor: 'action.hover' }}>
@@ -62,7 +61,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <Box className={styles.priceRow}>
             <Typography className={styles.price} color="text.primary">
-              ${product.price.toFixed(2)}
+              {formatPrice(product.price)}
             </Typography>
             {originalPrice && (
               <Typography

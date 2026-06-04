@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 
 import { AppRoutes } from './routes/AppRoutes';
-import { NavBar } from './components/ui/NavBar';
+import { NavBar } from './components/NavBar';
 import { useAuthInit } from './auth/useAuthInit';
 
 function App() {

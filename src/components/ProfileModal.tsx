@@ -10,9 +10,10 @@ import {
 
 import { AppModal } from './AppModal';
 import { AppAvatar } from './AppAvatar';
-import { ProfileRow } from './Profilerow';
-import { useColorMode } from '../../theme/useColorMode';
-import type { ProfileModalProps } from '../../types/user';
+import { ProfileRow } from './ProfileRow';
+import { useColorMode } from '../theme/useColorMode';
+import type { ProfileModalProps } from '../types/user';
+import { Theme } from '../theme/theme';
 
 export const ProfileModal = ({ open, onClose, user }: ProfileModalProps) => {
   const { mode, setMode } = useColorMode();
@@ -37,9 +38,9 @@ export const ProfileModal = ({ open, onClose, user }: ProfileModalProps) => {
       </Box>
 
       <FormLabel>Theme</FormLabel>
-      <RadioGroup row value={mode} onChange={(e) => setMode(e.target.value as 'light' | 'dark')}>
-        <FormControlLabel value="light" control={<Radio />} label="Light" />
-        <FormControlLabel value="dark" control={<Radio />} label="Dark" />
+      <RadioGroup row value={mode} onChange={(e) => setMode(e.target.value as Theme)}>
+        <FormControlLabel value={Theme.LIGHT} control={<Radio />} label="Light" />
+        <FormControlLabel value={Theme.DARK} control={<Radio />} label="Dark" />
       </RadioGroup>
     </AppModal>
   );

@@ -1,27 +1,34 @@
 import {
-  Box,
   Typography,
-  TextField,
-  Chip,
   Pagination,
   InputAdornment,
   Select,
   MenuItem,
-  FormControl,
   InputLabel,
   Grid,
   Divider,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import clsx from 'clsx';
 
-import { ProductCard, ProductCardSkeleton } from '../../ui/ProductCard';
-import { useProducts } from '../../../hooks/useProducts';
-import { useCategories } from '../../../hooks/useCategories';
-import { useProductsParams } from '../../../hooks/useProductsParams';
-import { formatCategory } from '../../../utils/formatCategory';
-import styles from './Products.module.scss';
-import { PAGE_SIZE } from '../../../constants/pagination';
+import { ProductCard, ProductCardSkeleton } from '../../components/ProductCard';
+import { useProducts } from '../../hooks/useProducts';
+import { useCategories } from '../../hooks/useCategories';
+import { useProductsParams } from '../../hooks/useProductsParams';
+import { formatCategory } from '../../utils/formatCategory';
+import { PAGE_SIZE } from '../../constants/pagination';
+import {
+  PageRoot,
+  Header,
+  PageTitle,
+  FilterBar,
+  SearchField,
+  CategorySelect,
+  ActiveFilters,
+  FilterChip,
+  GridWrapper,
+  EmptyState,
+  PaginationRow,
+} from './Products.styles';
 
 export const Products = () => {
   const { search, category, page, searchInput, setSearchInput, setCategory, clearSearch, setPage } =
@@ -35,24 +42,21 @@ export const Products = () => {
   const hasActiveFilters = !!(search || category);
 
   return (
-    <Box className={styles.page}>
-      <Box className={styles.header}>
-        <Typography className={styles.pageTitle} color="text.primary">
-          Products
-        </Typography>
+    <PageRoot>
+      <Header>
+        <PageTitle color="text.primary">Products</PageTitle>
         <Typography variant="body2" sx={{ mt: 1, color: 'text.secondary' }}>
           {isLoading ? 'Loading…' : `${data?.total ?? 0} items found`}
         </Typography>
         <Divider sx={{ mt: 3 }} />
-      </Box>
+      </Header>
 
-      <Box className={styles.filterBar}>
-        <TextField
+      <FilterBar>
+        <SearchField
           placeholder="Search products…"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           size="small"
-          className={styles.searchField}
           slotProps={{
             input: {
               startAdornment: (
@@ -64,7 +68,7 @@ export const Products = () => {
           }}
         />
 
-        <FormControl size="small" sx={{ minWidth: 180 }}>
+        <CategorySelect size="small">
           <InputLabel>Category</InputLabel>
           <Select value={category} label="Category" onChange={(e) => setCategory(e.target.value)}>
             <MenuItem value="">All categories</MenuItem>
@@ -74,35 +78,33 @@ export const Products = () => {
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
+        </CategorySelect>
 
         {hasActiveFilters && (
-          <Box className={styles.activeFilters}>
+          <ActiveFilters>
             {search && (
-              <Chip
+              <FilterChip
                 label={`"${search}"`}
                 size="small"
-                className={styles.filterChip}
                 sx={{ bgcolor: 'action.selected' }}
                 onDelete={clearSearch}
               />
             )}
             {category && (
-              <Chip
+              <FilterChip
                 label={formatCategory(category)}
                 size="small"
-                className={styles.filterChip}
                 sx={{ bgcolor: 'action.selected' }}
                 onDelete={() => setCategory('')}
               />
             )}
-          </Box>
+          </ActiveFilters>
         )}
-      </Box>
+      </FilterBar>
 
-      <Box className={clsx(styles.gridWrapper, isPlaceholderData && styles.dimmed)}>
+      <GridWrapper dimmed={isPlaceholderData}>
         {!isLoading && products.length === 0 ? (
-          <Box className={styles.emptyState}>
+          <EmptyState>
             <Typography
               variant="h6"
               color="text.primary"
@@ -113,7 +115,7 @@ export const Products = () => {
             <Typography variant="body2" color="text.secondary">
               Try adjusting your search or filters
             </Typography>
-          </Box>
+          </EmptyState>
         ) : (
           <Grid container spacing={2}>
             {isLoading
@@ -129,10 +131,10 @@ export const Products = () => {
                 ))}
           </Grid>
         )}
-      </Box>
+      </GridWrapper>
 
       {totalPages > 1 && (
-        <Box className={styles.paginationRow}>
+        <PaginationRow>
           <Pagination
             count={totalPages}
             page={page}
@@ -142,8 +144,8 @@ export const Products = () => {
             showLastButton
             shape="rounded"
           />
-        </Box>
+        </PaginationRow>
       )}
-    </Box>
+    </PageRoot>
   );
 };

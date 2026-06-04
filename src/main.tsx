@@ -6,12 +6,15 @@ import './index.css';
 import App from './App.tsx';
 import { ThemeProvider } from './theme/ThemeProvider';
 import { queryClient } from './lib/queryClient';
+import { SnackbarProvider } from './providers/SnackbarProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <App />
+        <SnackbarProvider>
+          <App />
+        </SnackbarProvider>
       </ThemeProvider>
     </QueryClientProvider>
   </StrictMode>,

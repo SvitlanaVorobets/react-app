@@ -27,7 +27,7 @@ export const useProductsParams = () => {
     }, 400);
 
     return () => clearTimeout(timer);
-  }, [searchInput, setSearchParams]);
+  }, [searchInput]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const setParam = (key: string, value: string) => {
     setSearchParams((prev) => {
