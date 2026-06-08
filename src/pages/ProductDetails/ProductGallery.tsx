@@ -1,10 +1,8 @@
 import { Box } from '@mui/material';
 import { MainImage, Thumbnails, Thumb } from './ProductDetails.styles';
+import type { ProductDetails } from '../../types/product-details';
 
-interface Props {
-  images: string[];
-  thumbnail: string;
-  title: string;
+interface Props extends Pick<ProductDetails, 'images' | 'thumbnail' | 'title'> {
   activeImage: number;
   onSelect: (index: number) => void;
 }

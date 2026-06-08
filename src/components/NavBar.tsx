@@ -5,6 +5,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { AppAvatar } from './AppAvatar';
 import { ProfileModal } from './ProfileModal';
 import { useAuth } from '../auth/useAuth';
+import { getFullName } from '../utils/getFullName';
 
 export const NavBar = () => {
   const { user, logout } = useAuth();
@@ -12,7 +13,7 @@ export const NavBar = () => {
 
   if (!user) return null;
 
-  const fullName = `${user.firstName} ${user.lastName}`;
+  const fullName = getFullName(user.firstName, user.lastName);
 
   return (
     <>

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppButton } from '../components/AppButton';
 import { FormTextField } from '../components/FormTextField';
 import { useSnackbar } from '../providers/useSnackbar';
-import { signUpSchema } from '../schemas/signUpSchema';
+import { signUpSchema } from '../schemas/baseAuthSchema';
 import { ROUTES } from '../routes/routes';
 
 const fakeSignUp = (): Promise<void> => new Promise((resolve) => setTimeout(resolve, 500));

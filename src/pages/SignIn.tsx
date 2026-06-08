@@ -6,7 +6,7 @@ import { useAuth } from '../auth/useAuth';
 import { AppButton } from '../components/AppButton';
 import { FormTextField } from '../components/FormTextField';
 import { useSnackbar } from '../providers/useSnackbar';
-import { signInSchema } from '../schemas/signInSchema';
+import { signInSchema } from '../schemas/baseAuthSchema';
 
 export const SignIn = () => {
   const { login, isPending } = useAuth();

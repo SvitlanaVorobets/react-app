@@ -14,10 +14,11 @@ import { ProfileRow } from './ProfileRow';
 import { useColorMode } from '../theme/useColorMode';
 import type { ProfileModalProps } from '../types/user';
 import { Theme } from '../theme/theme';
+import { getFullName } from '../utils/getFullName';
 
 export const ProfileModal = ({ open, onClose, user }: ProfileModalProps) => {
   const { mode, setMode } = useColorMode();
-  const fullName = `${user.firstName} ${user.lastName}`;
+  const fullName = getFullName(user.firstName, user.lastName);
 
   return (
     <AppModal open={open} onClose={onClose} title="Profile">
