@@ -32,6 +32,7 @@ export const useAuth = () => {
   return {
     user,
     isAuthenticated,
+    hasToken: !!storageService.getToken(),
     login: loginMutation.mutateAsync,
     isPending: loginMutation.isPending,
     logout,

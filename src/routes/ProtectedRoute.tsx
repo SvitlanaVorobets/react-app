@@ -1,9 +1,21 @@
 import { Navigate } from 'react-router-dom';
+import { CircularProgress, Box } from '@mui/material';
+import { useIsFetching } from '@tanstack/react-query';
+
 import { useAuth } from '../auth/useAuth';
 import { ROUTES } from '../routes/routes';
 
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, hasToken } = useAuth();
+  const isFetching = useIsFetching({ queryKey: ['auth', 'me'] }) > 0;
+
+  if (hasToken && !isAuthenticated && isFetching) {
+    return (
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 8 }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (!isAuthenticated) {
     return <Navigate to={ROUTES.SIGN_IN} replace />;

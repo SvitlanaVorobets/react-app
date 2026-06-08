@@ -1,0 +1,192 @@
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 0 80px;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 40px 0 32px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.gallery {
+  position: sticky;
+  top: 24px;
+
+  @media (max-width: 700px) {
+    position: relative;
+  }
+}
+
+.mainImage {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 20px;
+  padding: 32px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+
+  &.active {
+    border-color: currentColor;
+  }
+}
+
+.info {
+  padding-top: 8px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.discountBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #ff3b30;
+  color: #fff;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  letter-spacing: -0.005em;
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 8px;
+}
+
+.specRow {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.specLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.specValue {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  border-radius: 980px;
+  height: 24px;
+  letter-spacing: 0.01em;
+}
+
+.footer {
+  font-size: 0.72rem;
+  margin-top: 24px;
+  display: block;
+  letter-spacing: 0.01em;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.notFoundTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
